@@ -33,14 +33,11 @@
 
 <script>
 $(function()  {
-  $(document).bind("keyup", "space", function() {
-    $("#shuffle").trigger("click")
-    return false;
-  })
+
   
   var current_class = $("body").attr("class")
   $("body").removeClass(current_class).addClass(unique_random_class(current_class), "1000");
-  $("li.twitter a").live("click", function()  {
+  $("li.twitter a").on("click", function()  {
     var width  = 575,
         height = 400,
         left   = ($(window).width()  - width)  / 2,

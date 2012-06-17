@@ -1,4 +1,12 @@
-<% provide(:keyboard_nav, "page") %>
+<div id="keyboard_shortcuts">
+    <h6>Keyboard shortcuts</h6>
+    <ul>
+      <li><kbd>h</kbd><span>Home page</span></li>
+      <li><kbd>&larr;</kbd><span>Previous page</span></li>
+      <li><kbd>&rarr;</kbd><span>Next page</span></li>
+    </ul>
+</div>
+
 <section class="quote_list centered">
 
   <% unless @quotes.empty? %>
@@ -28,5 +36,6 @@ $('.quote_list_inner').masonry({
     // options
     itemSelector : '.box',
   });
+  $("#keyboard_shortcuts").appendTo($("body"))
 </script>
 
