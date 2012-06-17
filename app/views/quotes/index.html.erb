@@ -1,7 +1,72 @@
 
 <% provide(:keyboard_nav, "quote") %>
-<div id="quote">
-  <%= render "quote" %>
+<div id="quote" style="height: 517px">
+  <div class="quote_inner">
+    <%= render "quote" %>
+  </div><!--quote-inner-->
 </div><!--quote-->
 
-<%= render "shared/show_page_footer" %>
+<footer id="fixed" class="index_page">
+  <div class="container">
+    <div class="row">
+      <ul class="eight columns centered ">
+        <li class="share facebook four columns" style="position: relative;">
+          <div class="fb-like" style="position: absolute; top: 0; left: 0; z-index: 1000" data-href="" data-send="false" data-layout="button_count" data-width="83" data-show-faces="false" data-font="lucida grande"></div>
+          <span href="#" title="Share on Facebook" class="button black">Facebook</span>
+          </li>
+        <li class="four columns"><%= link_to "Shuffle", root_path, remote: true, class: "button black", id: "shuffle" %></li>
+        <li class="share twitter four columns"><a href="#" data-url='http://twitter.com/share?text=<%= tweet_msg(@quote) %>' title="Share on Twitter" class="button black">Tweet!</a></li>
+      </ul>
+    </div><!--row-->
+  </div><!--container-->
+</footer>
+
+
+<div id="zazzle" class="reveal-modal">
+  <%= render "zazzle_modal" %>
+</div>
+
+<script>
+$(function()  {
+  var current_class = $("body").attr("class")
+  $("body").removeClass(current_class).addClass(unique_random_class(current_class), "1000");
+  $("li.twitter a").live("click", function()  {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = this.href,
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+        window.open($(this).data("url"), 'twitter', opts);
+    return false;
+  });
+
+  
+  $(".fb-like").css({
+    top: "20px",
+    left: "60px",
+    width: "83px",
+    background: "transparent"
+  }).hide();
+  
+  $("li.facebook").hover(function() {
+    $(".fb-like").fadeIn();
+  }, function() {
+    $(".fb-like").fadeOut();
+  })
+  
+  $(".tshirt").live("click", function() {
+    $("#quote, footer#fixed").css("z-index", 1)
+    $('#zazzle').reveal();  
+    
+    return false;       
+  })
+  
+});
+</script>
+

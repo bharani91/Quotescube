@@ -1,0 +1,18 @@
+$(".wrapper").fadeOut("slow", function() {
+  $("#quote").html("<%=j render 'quote' %>");
+  $('.jtextfill').textfill({ maxFontPixels: 80 });
+  $(".wrapper").fadeIn("slow");
+})
+
+var current_class = $("body").attr("class")
+$("body").removeClass(current_class).addClass(unique_random_class(current_class), "1000");
+
+$("#zazzle").html("<%=j render 'zazzle_modal' %>")
+
+$("li.twitter").html("<%=j render 'twitter_link' %>")
+
+
+
+
+
+

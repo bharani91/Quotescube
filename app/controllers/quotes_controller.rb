@@ -3,10 +3,10 @@ class QuotesController < ApplicationController
   # GET /quotes.json
   def index
     @quote = Quote.first(:offset => rand(Quote.count))
-    @next_quote = Quote.first(:offset => rand(Quote.count))
     @authors = Quote.uniq.pluck(:author)
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.json { render json: @quotes }
     end
   end
@@ -15,7 +15,11 @@ class QuotesController < ApplicationController
   # GET /quotes/1.json
   def show
     @quote = Quote.find_by_permalink(params[:short_link])
-    @next_quote = Quote.first(:offset => rand(Quote.count))
+    current_id = @quote.id
+    next_id = current_id + 1
+    prev_id = current_id - 1
+    @next_quote = Quote.find(next_id)
+    @prev_quote = Quote.find(prev_id)
     @authors = Quote.uniq.pluck(:author)
     respond_to do |format|
       format.html # show.html.erb

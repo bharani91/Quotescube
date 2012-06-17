@@ -65,7 +65,12 @@ body  {
   
   li a {
     display: block;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
     box-sizing: border-box;
+    
     padding: 5px;
     background: rgba(0,0,0,0.2);
     @include rounded();
@@ -255,7 +260,12 @@ header a#logo {
   }
   
   background: url("../assets/quote_bg.png") left top no-repeat;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
+  
   padding: 20px 60px 20px 40px;
   position: relative;
   z-index: 100;
@@ -267,7 +277,7 @@ header a#logo {
   a#tshirt  {
     position: absolute;
     z-index: 10;
-    bottom: 50px;
+    bottom: 100px;
     right: -87px;
     width: 131px;
     height: 68px;
@@ -348,6 +358,20 @@ footer#fixed  {
         font-size: 28px;
         line-height: 40px;
         text-indent: 0;
+        background: #000;
+      }
+    }
+    
+    a.next  {
+      background: #000 url("../assets/next.png") center 8px no-repeat;
+      &:hover  {
+        background: #000;
+      }
+    }
+    
+    a.prev  {
+      background: #000 url("../assets/prev.png") center 8px no-repeat;
+      &:hover  {
         background: #000;
       }
     }
@@ -711,7 +735,9 @@ body.pink {
 // Content Page
 // ---------------------------------------
 section.quote_list {
-  width: 820px;
+  margin: 0;
+  width: 723px;
+  margin-left: 25px;
   div.row {
     margin: 30px 0;
     position: relative;
@@ -730,12 +756,17 @@ section.quote_list {
   }
   a.box {
     background: #f9f9f9;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
     box-sizing: border-box;
+    
     padding: 10px;
     margin: 10px;
     float: left;
     @include rounded(3px);
-    width: 224px;
+    width: 220px;
     -webkit-box-shadow: 3px 3px 0px darken($blue, 30%);
     -moz-box-shadow: 3px 3px 0px darken($blue, 30%);
     box-shadow: 3px 3px 0px darken($blue, 30%);
