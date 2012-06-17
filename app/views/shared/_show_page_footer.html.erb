@@ -1,0 +1,78 @@
+
+<footer id="fixed">
+  <div class="container">
+    <div class="row">
+      <ul class="eight columns centered ">
+        <li class="share facebook four columns" style="position: relative;">
+          <div class="fb-like" style="position: absolute; top: 0; left: 0; z-index: 1000" data-href="" data-send="false" data-layout="button_count" data-width="83" data-show-faces="false" data-font="lucida grande"></div>
+          <span href="#" title="Share on Facebook" class="button black">Facebook</span>
+          </li>
+        <li class="four columns"><%= link_to "Shuffle", @next_quote.permalink, class: "button black", id: "shuffle" %></li>
+        <li class="share twitter four columns"><a href="#" data-url='http://twitter.com/share?text=<%= tweet_msg(@quote) %>' title="Share on Twitter" class="button black">Tweet!</a></li>
+      </ul>
+    </div><!--row-->
+  </div><!--container-->
+</footer>
+
+<div id="zazzle" class="reveal-modal">
+     <h3>Choose the product that you want this quote printed on.</h3>
+     <p class="lead">" <%= @quote.quote_text %>"</p>
+     <div class="row">
+       <ul class="product_list twelve column">
+         <div class="row">
+           <li class="four columns"><a href="http://www.zazzle.com/api/create/at-238653060974957095?rf=238653060974957095&ax=Linkover&pd=235541331138354782&fwd=ProductPage&ed=true&tc=&ic=&quote=<%= @quote.quote_text %>" target="_blank"><%= image_tag "mens.jpg", alt: "Men's shirt" %><span>Men's shirt</span></a></li>
+           <li class="four columns"><a href="http://www.zazzle.com/api/create/at-238653060974957095?rf=238653060974957095&ax=Linkover&pd=235475898325175794&fwd=ProductPage&ed=true&tc=&ic=&quote=<%= @quote.quote_text %>" target="_blank"><%= image_tag "women.jpg", alt: "Men's shirt" %><span>Women's shirt</span></a></li>
+           <li class="four columns"><a href="http://www.zazzle.com/api/create/at-238653060974957095?rf=238653060974957095&ax=Linkover&pd=235396938188912490&fwd=ProductPage&ed=true&tc=&ic=&quote=<%= @quote.quote_text %>" target="_blank"><%= image_tag "kids.jpg", alt: "Men's shirt" %><span>Kid's shirt</span></a></li>
+         </div>
+         <div class="row">
+           <li class="four columns"><a href="http://www.zazzle.com/api/create/at-238653060974957095?rf=238653060974957095&ax=Linkover&pd=235287255290412149&fwd=ProductPage&ed=true&tc=&ic=&quote=<%= @quote.quote_text %>" target="_blank"><%= image_tag "hoodie.jpg", alt: "Men's shirt" %><span>Hoodies</span></a></li>
+           <li class="four columns"><a href="http://www.zazzle.com/api/create/at-238653060974957095?rf=238653060974957095&ax=Linkover&pd=168766836698004661&fwd=ProductPage&ed=true&tc=&ic=&quote=<%= @quote.quote_text %>" target="_blank"><%= image_tag "mug.jpg", alt: "Men's shirt" %><span>Mugs</span></a></li>
+           <li class="four columns"><a href="http://www.zazzle.com/api/create/at-238653060974957095?rf=238653060974957095&ax=Linkover&pd=144315287555416936&fwd=ProductPage&ed=true&tc=&ic=&quote=<%= @quote.quote_text %>" target="_blank"><%= image_tag "mousepad.jpg", alt: "Men's shirt" %><span>Mousepad</span></a></li>
+         </div>
+       </ul> 
+     </div><!--row-->
+     <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<script>
+$(function()  {
+  var current_class = $("body").attr("class")
+  $("body").removeClass(current_class).addClass(unique_random_class(current_class), "1000");
+  $("li.twitter a").click(function()  {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = this.href,
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+        window.open($(this).data("url"), 'twitter', opts);
+    return false;
+  });
+
+  
+  $(".fb-like").css({
+    top: "20px",
+    left: "60px",
+    width: "83px",
+    background: "transparent"
+  }).hide();
+  
+  $("li.facebook").hover(function() {
+    $(".fb-like").fadeIn();
+  }, function() {
+    $(".fb-like").fadeOut();
+  })
+  
+  $(".tshirt").click(function() {
+    $("#quote, footer#fixed").css("z-index", 1)
+    $('#zazzle').reveal();  
+    return false;       
+  })
+  
+});
+</script>

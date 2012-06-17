@@ -1,0 +1,20 @@
+<div class="links" style="height: 30px">
+  <%= link_to @quote.category, quotes_by_category_path(@quote.category), class: "category" %>
+  <%= link_to "Get this on a tshirt", "", class: "tshirt category", id: "small_tshirt" %>
+  <!-- <%= link_to "Permalink", @quote.permalink, class: "permalink" %> -->
+  
+</div>
+
+<div class="wrapper jtextfill" style="height: 350px">
+  <h1><%= @quote.quote_text %></h1>
+</div>
+
+<div class="quote_info" style="height:60px">
+   <span>&mdash; </span><%= link_to @quote.author, quotes_by_author_path(convert_to_slug(@quote.author)), class: "quote_author" %>
+  <% unless @quote.context.blank? %>
+    <em class="context">, <%= @quote.context %></em>
+  <% end %>
+</div>
+ 
+<a href="#" class="tshirt" title="Get this quote on a T-shirt!" id="tshirt">Get this quote on a t-shirt</a>
+

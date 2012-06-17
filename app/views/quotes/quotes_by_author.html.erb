@@ -1,0 +1,32 @@
+<% provide(:keyboard_nav, "page") %>
+<section class="quote_list eleven columns centered">
+
+  <% unless @quotes.empty? %>
+    <h2 class="title">Quotes by <span><%= @author %></span></h2>
+    <div class="quote_list_inner clearfix">
+      <% @quotes.each_with_index do |quote, index| %>  
+        <a href='<%= "#{root_url}#{quote.permalink}" %>' class="box">
+          <h5><%= snippet(quote.quote_text) %></h5>
+        </a><!--box-->
+      <% end %>
+    </div><!--quote_list_inner-->
+    
+    <div class="pagination_wrap clearfix">
+      <%= will_paginate @quotes %>
+    </div>
+    
+  <% else %>
+    <div class="six columns centered not_found">
+      <h2>Sorry! No quotes found.</h2>
+    </div><!--not-found-->
+  <% end %>
+  
+</section><!--quote_list-->
+
+<script>
+$('.quote_list_inner').masonry({
+    // options
+    itemSelector : '.box',
+  });
+</script>
+
