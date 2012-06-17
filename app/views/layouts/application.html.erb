@@ -45,14 +45,6 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
   
-  <!-- <div id="keyboard_shortcuts">
-    <h6>Keyboard shortcuts</h6>
-    <ul>
-      <li><kbd>&larr;</kbd><span>Previous <%= yield(:keyboard_nav) %></span></li>
-      <li><kbd>&rarr;</kbd><span>Next <%= yield(:keyboard_nav) %></span></li>
-    </ul>
-  </div> -->
-  
   <section class="container">
     
     <header class="row">
@@ -61,22 +53,8 @@
           <h1>quotescube</h1>
         </a>
 
-      <nav class="seven columns" id="filter_by_category">
-        <ul class="nav-bar">
-          <li class="has-flyout">
-          		<a href="#" class="main">Author</a>
-          		<a href="#" class="flyout-toggle"><span></span></a>
-          		<div class="flyout small">
-          			<input type="search" id="filter_author" placeholder="Find quotes by author" />
-          			
-          			<ul class="sub_list clearfix">
-          			  <% @authors.each do |author| %>
-          			    <li><%= link_to author, quotes_by_author_path(convert_to_slug(author)) %></li>
-     			        <% end %>
-                </ul>
-          		</div><!--flyout-->
-          	</li>
-          	
+      <nav class="four columns" id="filter_by_category">
+        <ul class="nav-bar">          	
           	 <li class="has-flyout">
               		<a href="#" class="main">Category</a>
               		<a href="#" class="flyout-toggle"><span></span></a>
@@ -103,24 +81,5 @@
     
   </section><!--container-->
   
-  <script>
-  $(document).ready(function(){
-  	$("#filter_author").keyup(function(){
-  	  
-  		var filter = $(this).val();
-
-  		// Loop through the comment list
-  		$(".sub_list li a").each(function(){
-  		  
-  			if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-  				$(this).hide();
-  			} else {
-  				$(this).show();
-  			}
-  		});
-
-  	});
-  });
-  </script>
 </body>
 </html>

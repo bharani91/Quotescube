@@ -1,5 +1,10 @@
+<div id="keyboard_shortcuts">
+    <h6>Keyboard shortcuts</h6>
+    <ul>
+      <li><kbd>space</kbd><span>Random quote</span></li>
+    </ul>
+</div>
 
-<% provide(:keyboard_nav, "quote") %>
 <div id="quote" style="height: 517px">
   <div class="quote_inner">
     <%= render "quote" %>
@@ -28,6 +33,11 @@
 
 <script>
 $(function()  {
+  $(document).bind("keyup", "space", function() {
+    $("#shuffle").trigger("click")
+    return false;
+  })
+  
   var current_class = $("body").attr("class")
   $("body").removeClass(current_class).addClass(unique_random_class(current_class), "1000");
   $("li.twitter a").live("click", function()  {
@@ -67,6 +77,7 @@ $(function()  {
     return false;       
   })
   
+  $("#keyboard_shortcuts").appendTo($("body"))
 });
 </script>
 
