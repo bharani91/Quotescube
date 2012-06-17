@@ -14,8 +14,7 @@ class QuotesController < ApplicationController
   # GET /quotes/1.json
   def show
     @quote = Quote.find_by_permalink(params[:short_link])
-    @next_quote = Quote.find_by_permalink(params[:short_link])
-    @authors = Quote.uniq.pluck(:author)
+    @next_quote = Quote.first(:offset => rand(Quote.count))
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @quote }
