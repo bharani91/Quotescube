@@ -55,10 +55,15 @@ body  {
 #about {
   top: 20px !important;
   width: 600px;
+  a {
+    font-weight: bold;
+    color: darken(#2A85E8, 10%) !important;
+  }
   li  a {
     display: block;
     margin: 5px 0;
     padding: 4px 0;
+    font-weight: normal;
     border-bottom: 1px dotted gray;
     &:hover {
       border-bottom-style: solid;
