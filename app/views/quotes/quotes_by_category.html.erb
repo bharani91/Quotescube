@@ -1,33 +1,7 @@
-<div id="keyboard_shortcuts">
-    <h6>Keyboard shortcuts</h6>
-    <ul>
-      <li><kbd>h</kbd><span>Home page</span></li>
-      <li><kbd>&larr;</kbd><span>Previous page</span></li>
-      <li><kbd>&rarr;</kbd><span>Next page</span></li>
-    </ul>
-</div>
 
 <section class="quote_list">
 
-  <% unless @quotes.empty? %>
-    <h2 class="title"><span>'<%= params[:cat].humanize %>'</span> quotes</h2>
-    <div class="quote_list_inner clearfix">
-      <% @quotes.each_with_index do |quote, index| %>
-        <a href='<%= "#{root_url}#{quote.permalink}" %>' class="box">
-          <h5><%= snippet(quote.quote_text) %></h5>
-        </a><!--box-->
-      
-      <% end %>
-    </div><!--quote_list_inner-->
-    
-    <div class="pagination_wrap clearfix">
-      <%= will_paginate @quotes %>
-    </div>
-  <% else %>
-    <div class="six columns centered not_found">
-      <h2>Sorry! No quotes found.</h2>
-    </div><!--not-found-->
-  <% end %>
+  <%= render "quote_list" %>
   
 </section><!--quote_list-->
 
@@ -37,5 +11,5 @@ $('.quote_list_inner').masonry({
     itemSelector : '.box',
   });
   
-  $("#keyboard_shortcuts").appendTo($("body"))
+
 </script>

@@ -29,6 +29,7 @@ class QuotesController < ApplicationController
     @author = @quotes.first.author unless @quotes.empty?
     respond_to do |format|
       format.html # show.html.erb
+      format.js
       format.json { render json: @quote }
     end
   end
@@ -39,6 +40,7 @@ class QuotesController < ApplicationController
     @quotes = Quote.where(:category => params[:cat]).paginate(:page => params[:page], :per_page => 21)
     respond_to do |format|
       format.html # show.html.erb
+      format.js
       format.json { render json: @quote }
     end
   end
