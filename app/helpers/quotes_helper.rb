@@ -11,7 +11,7 @@ module QuotesHelper
   
   def tweet_msg(quote)
     message = "#{CGI.escape(@quote.quote_text)} - #{@quote.author}" 
-    url = "#{shorten('http://quotescube.com/#{@quote.permalink}')}"
+    url = shorten("http://quotescube.herokuapp.com.com/#{@quote.permalink}")
     
     if message.length < 130
       return message + " &url=" + url + "&via=quotescube"
