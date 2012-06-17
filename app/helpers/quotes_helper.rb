@@ -14,9 +14,9 @@ module QuotesHelper
     url = "#{shorten('http://quotescube.com/#{@quote.permalink}')}"
     
     if message.length < 130
-      return message + " " + url + "&via=quotescube"
+      return message + " &url=" + url + "&via=quotescube"
     elsif message.length > 120
-      return truncate(message, length: 120) + " " + url
+      return truncate(message, length: 120) + " &url=" + url
     end
   end
 end
