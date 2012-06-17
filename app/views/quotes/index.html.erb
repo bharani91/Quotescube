@@ -32,7 +32,7 @@ $(function()  {
   
   var current_class = $("body").attr("class")
   $("body").removeClass(current_class).addClass(unique_random_class(current_class), "1000");
-  $("li.twitter a").on("click", function()  {
+  $("li.twitter a").live("click", function()  {
     var width  = 575,
         height = 400,
         left   = ($(window).width()  - width)  / 2,
