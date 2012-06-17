@@ -2,7 +2,6 @@
     <h6>Keyboard shortcuts</h6>
     <ul>
       <li><kbd>h</kbd><span>Home page</span></li>
-      <li><kbd>&larr;</kbd><span>Previous quote</span></li>
       <li><kbd>&rarr;</kbd><span>Next quote</span></li>
     </ul>
 </div>
@@ -14,14 +13,13 @@
 <footer id="fixed" class="show_page">
   <div class="container">
     <div class="row">
-      <ul class="eight columns centered clearfix">
-        <li class="share facebook three columns" style="position: relative;">
+      <ul class="eight columns centered">
+        <li class="share facebook four columns" style="position: relative;">
           <div class="fb-like" style="position: absolute; top: 0; left: 0; z-index: 1000" data-href="" data-send="false" data-layout="button_count" data-width="83" data-show-faces="false" data-font="lucida grande"></div>
           <span href="#" title="Share on Facebook" class="button black">Facebook</span>
           </li>
-        <li class="three columns"><%= link_to "Prev", @prev_quote.permalink, class: "button black prev" %></li>
-        <li class="three columns"><%= link_to "Next", @next_quote.permalink, class: "button black next" %></li>
-        <li class="share twitter three columns"><%= render "twitter_link" %></li>
+        <li class="four columns"><%= link_to "Next", @next_quote.permalink, class: "button black next" %></li>
+        <li class="share twitter four columns"><%= render "twitter_link" %></li>
       </ul>
     </div><!--row-->
   </div><!--container-->

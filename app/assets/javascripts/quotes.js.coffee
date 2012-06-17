@@ -15,9 +15,6 @@ jQuery ($) ->
     $(document).bind("keyup", "space", ->
       $("#shuffle").trigger("click")
     )
-    $(document).bind("keyup", "t", ->
-      $("li.twitter a").trigger("click")
-    )
     
   else if($(".show_page").length)
     $(document).bind("keyup", "left", ->

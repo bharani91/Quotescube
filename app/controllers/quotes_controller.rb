@@ -14,11 +14,7 @@ class QuotesController < ApplicationController
   # GET /quotes/1.json
   def show
     @quote = Quote.find_by_permalink(params[:short_link])
-    current_id = @quote.id
-    next_id = current_id + 1
-    prev_id = current_id - 1
-    @next_quote = Quote.find(next_id)
-    @prev_quote = Quote.find(prev_id)
+    @next_quote = Quote.find_by_permalink(params[:short_link])
     @authors = Quote.uniq.pluck(:author)
     respond_to do |format|
       format.html # show.html.erb
