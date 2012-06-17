@@ -52,6 +52,32 @@ body  {
   border-top: 10px solid darken($blue, 20%);
 }
 
+#about {
+  top: 20px !important;
+  width: 600px;
+  li  a {
+    display: block;
+    margin: 5px 0;
+    padding: 4px 0;
+    border-bottom: 1px dotted gray;
+    &:hover {
+      border-bottom-style: solid;
+    }
+  }
+}
+
+#about_link {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  padding: 10px 20px;
+  background: #ccc;
+  background: rgba(0,0,0,0.3);
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: bold;
+}
+
 #zazzle {
   z-index: 1000;
   top: -50px !important;
@@ -790,7 +816,7 @@ section.quote_list {
 // ---------------------------------------
 
 @media screen and (max-width: 1000px)  {
-  #filter_by_category, #keyboard_shortcuts, #tshirt, .reveal-modal-bg {
+  #filter_by_category, #keyboard_shortcuts, #tshirt, .reveal-modal-bg, #about_link {
     display: none !important;
   }
   

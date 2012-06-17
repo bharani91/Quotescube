@@ -9,10 +9,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Quotescube | Daily dose of curated and handpicked quotes</title>
+  <title>QuotesCube | Daily dose of curated and handpicked quotes</title>
   <meta name="author" content="Bharani M" />
-	<meta name="keywords" content="quotes, quotescube, quote tees, tshirts, famous quotes, best quotes, inspiring quotes, motivational quotes, humor quotes, quotations, most famous quotations">
-	<meta name="description" content="Quotescube provides you with a daily dose of curated and handpicked quotes.">
+	<meta name="keywords" content="quotes, QuotesCube, quote tees, tshirts, famous quotes, best quotes, inspiring quotes, motivational quotes, humor quotes, quotations, most famous quotations">
+	<meta name="description" content="QuotesCube provides you with a daily dose of curated and handpicked quotes.">
 
   <%= stylesheet_link_tag    "application", :media => "screen" %>
   <%= javascript_include_tag "application" %>
@@ -58,12 +58,43 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
   
+  <div id="about" class="reveal-modal">
+       <h3>About QuotesCube</h3>
+       <p class="lead">QuotesCube provides you with a collection of curated and hand-picked quotes. QuotesCube also helps you print your favorite quote on a T-shirt or an accessory.</p>
+       <div class="row">
+         <div class="six columns">
+           <strong>Top quote topics</strong>
+           <ul>
+             <% ["inspirational", "humor", "happiness", "wisdom", "love", "spirituality"].each do |category| %>
+     			    <li><%= link_to "#{category.humanize} quotes", quotes_by_category_path(category) %></li>
+             <% end %>
+           </ul>
+          </div><!--six columns-->
+          
+           <div class="six columns">
+             <strong>Famous authors</strong>
+             <ul>
+               <% ["Mahatma Gandhi", "Winston S Churchill", "George Bernard Shaw", "Steve Maraboli", "Cassandra Clare", "Confucius"].each do |author| %>
+       			    <li><%= link_to author, quotes_by_author_path(convert_to_slug(author)) %></li>
+               <% end %>
+             </ul>
+            </div><!--six columns-->
+          </div><!--row-->
+      
+         <div class="row">
+           <p>QuotesCube is designed, developed and maintained by <a href="http://bharani.herokuapp.com">Bharani Muthukumaraswamy</a>, a Designer/Environmental Engineer from Delhi, India. If you have any suggestions, ideas or bug reports, please feel free to <a href="mailto:bharani91@gmail.com">drop me a line.</a>.</p>
+           <p>Do check out my other project, <a href="http://www.resumonk.com" title="Resumonk | Online resume builder | maker | generator ">Resumonk - a beautifully simple resume builder.</a></p>
+         </div><!--row-->
+       <a class="close-reveal-modal">&#215;</a>
+  </div><!--about-->
+  <a href="#" id="about_link" title="About Quotescube">About</a>
+  
   <section class="container">
     
     <header class="row">
       <div class="ten columns centered clearfix">
-        <a href="<%= root_path %>" id="logo" title="quotescube | Daily dose of curated and hacnpicked quotes">
-          <h1>quotescube</h1>
+        <a href="<%= root_path %>" id="logo" title="QuotesCube | Daily dose of curated and hacnpicked quotes">
+          <h1>QuotesCube</h1>
         </a>
 
       <nav class="four columns" id="filter_by_category">
@@ -77,6 +108,7 @@
               			  <% ["inspirational", "humor", "hope", "happiness", "wisdom", "love", "success", "spirituality", "peace", "creativity", "motivational"].each do |category| %>
               			    <li><%= link_to category.humanize, quotes_by_category_path(category) %></li>
                       <% end %>
+                    </ul>
               		</div><!--flyout-->
               	</li>
           	
@@ -93,6 +125,16 @@
     </div><!--row-->
     
   </section><!--container-->
+  
+  <script>
+    $(function()  {
+      $("#about_link").click(function() {
+        $("#quote, footer#fixed").css("z-index", 1)
+        $("#about").reveal();
+      });
+      
+    })
+  </script>
   
 </body>
 </html>
