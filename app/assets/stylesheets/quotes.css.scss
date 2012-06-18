@@ -71,16 +71,25 @@ body  {
   }
 }
 
-#about_link {
+#side_links {
   position: fixed;
   top: 100px;
   left: 0;
-  padding: 10px 20px;
-  background: #ccc;
   background: rgba(0,0,0,0.3);
-  color: #fff !important;
-  font-size: 15px;
-  font-weight: bold;
+  width: 115px;
+  height: 165px;
+  li  {
+    margin: 10px;
+    font-size: 15px;
+    font-weight: bold; 
+  }
+  
+  li a  {
+    padding: 10px 15px;
+    color: #fff !important;
+    display: block;
+    background: rgba(0,0,0,0.5);
+  }
 }
 
 #zazzle {
