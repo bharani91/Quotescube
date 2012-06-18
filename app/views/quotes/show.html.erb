@@ -17,6 +17,10 @@
   </div><!--container-->
 </footer>
 
+<div id="zazzle" class="reveal-modal">
+  <%= render "zazzle_modal" %>
+</div>
+
 
 
 <script>
@@ -53,7 +57,7 @@ $(function()  {
     $("#fixed .fb-like").fadeOut();
   })
   
-  $(".tshirt").live("click", function() {
+  $(".tshirt").on("click", function() {
     $("#quote, footer#fixed").css("z-index", 1)
     $('#zazzle').reveal();  
     return false;       
